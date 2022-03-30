@@ -33,11 +33,9 @@
           type="primary"
           @click="submitForm('loginForm')"
           :loading="loading"
+          native-type="submit"
           >登录</el-button
         >
-      </div>
-      <div class="reg-container">
-        <el-button>注册</el-button>
       </div>
     </el-form>
   </div>
@@ -70,7 +68,10 @@ export default {
           this.$route.replace("/");
         })
         .catch((err) => {
-          console.log(err);
+          this.$message({
+            message: err.message,
+            type: "error",
+          });
           this.loading = false;
         });
     },
@@ -156,11 +157,6 @@ export default {
       text-align: center;
       font-weight: bold;
     }
-  }
-
-  .reg-container {
-    margin-top: 10px;
-    text-align: right;
   }
 }
 </style>
