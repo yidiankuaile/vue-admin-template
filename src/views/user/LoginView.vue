@@ -65,7 +65,7 @@ export default {
         .dispatch("user/login", this.loginForm)
         .then(() => {
           this.loading = false;
-          this.$route.replace("/");
+          this.$router.replace("/");
         })
         .catch((err) => {
           this.$message({
